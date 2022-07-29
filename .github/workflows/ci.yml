@@ -1,0 +1,57 @@
+name: ci
+
+# workflow triggers
+on:
+  push:
+    branches:
+      - '**' # every branch
+    tags:
+      - '**'
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  formatter:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: code formatter
+        run: |
+          pip install wheel
+          pip install black
+          black --check src/
+          black --check tests/
+
+  coverage:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: coverage
+        run: |
+          pip install wheel
+          pip install -r requirements.txt
+          python -m unittest discover -b
+
+
+  # check if the makefile recipes are valid
+  makefile:
+    # needs: [test-and-build, docs] # commented because the serial execution slowed down the CI
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: makefile recipes
+        run: |
+          make install
+          make tests
