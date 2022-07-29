@@ -1,3 +1,5 @@
+[![github-actions](https://github.com/mashi/python-template/actions/workflows/ci.yml/badge.svg)](https://github.com/mashi/python-template/actions)
+
 # Description
 Template repository for python projects.
 
