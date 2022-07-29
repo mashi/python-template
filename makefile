@@ -5,7 +5,7 @@ SHELL := /bin/bash
 
 # install all the required packages and configure the git hooks
 install:
-	(\
+	@(\
 		python3 -m venv .venv; \
 		source .venv/bin/activate; \
 		pip install wheel; \
@@ -15,7 +15,7 @@ install:
 
 # execute tests
 tests: FORCE
-	(\
+	@(\
 		source .venv/bin/activate; \
 		python -m unittest discover -b; \
 	)
