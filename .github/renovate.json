@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "pre-commit": {
+    "enabled": true
+  },
+  "pip_requirements": {
+    "fileMatch": ["requirements$"]
+  },
+  "github-actions": {
+    "fileMatch": [".github/workflows/"]
+  },
+  "dependencyDashboard": true,
+  "branchConcurrentLimit": 50,
+  "prConcurrentLimit": 50,
+  "automerge": true,
+  "automergeType": "branch",
+  "schedule": [
+    "on the last day of the month"
+  ]
+}
