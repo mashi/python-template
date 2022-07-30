@@ -8,6 +8,9 @@
   "pip_requirements": {
     "fileMatch": ["requirements$"]
   },
+  "github-actions": {
+    "fileMatch": [".github/workflows/"]
+  },
   "dependencyDashboard": true,
   "branchConcurrentLimit": 50,
   "prConcurrentLimit": 50,
