@@ -19,3 +19,10 @@ To run tests:
 ```
 make tests
 ```
+
+To generate the documentation:
+```
+make docs
+```
+
+and open the `docs/_build/index.html` file.

@@ -21,4 +21,10 @@ tests: FORCE
 	)
 
 
+docs: FORCE
+	@(\
+		source .venv/bin/activate; \
+		sphinx-build -b html docs/source docs/_build/ \
+	)
+
 FORCE:
