@@ -10,6 +10,7 @@ install:
 		source .venv/bin/activate; \
 		pip install wheel; \
 		pip install -r requirements.txt; \
+		pip install -r docs/requirements-doc.txt; \
 		pre-commit install; \
 	)
 
@@ -24,7 +25,6 @@ tests: FORCE
 docs: FORCE
 	@(\
 		source .venv/bin/activate; \
-		pip install -r docs/requirements-doc.txt; \
 		sphinx-build -b html docs/source docs/_build/; \
 	)
 
