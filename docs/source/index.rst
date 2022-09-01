@@ -10,6 +10,7 @@ Welcome to python-template's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   autodoc-src
 
 
 Indices and tables
