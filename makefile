@@ -24,8 +24,8 @@ tests: FORCE
 docs: FORCE
 	@(\
 		source .venv/bin/activate; \
-		pip install -r docs/requirements-doc.txt \
-		sphinx-build -b html docs/source docs/_build/ \
+		pip install -r docs/requirements-doc.txt; \
+		sphinx-build -b html docs/source docs/_build/; \
 	)
 
 FORCE:
