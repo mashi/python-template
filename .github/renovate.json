@@ -6,7 +6,7 @@
     "enabled": true
   },
   "pip_requirements": {
-    "fileMatch": ["requirements$"]
+    "fileMatch": ["docs/requirements-docs", "requirements$"]
   },
   "github-actions": {
     "fileMatch": [".github/workflows/"]
