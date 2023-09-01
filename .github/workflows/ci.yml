@@ -15,7 +15,7 @@ on:
 
 jobs:
   formatter:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
@@ -29,7 +29,7 @@ jobs:
           black --check tests/
 
   coverage:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
@@ -45,7 +45,7 @@ jobs:
   # check if the makefile recipes are valid
   makefile:
     # needs: [test-and-build, docs] # commented because the serial execution slowed down the CI
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
