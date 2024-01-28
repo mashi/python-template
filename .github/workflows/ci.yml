@@ -25,8 +25,8 @@ jobs:
         run: |
           pip install wheel
           pip install ruff
-          ruff --check src/
-          ruff --check tests/
+          ruff check src/
+          ruff check tests/
 
   coverage:
     runs-on: ubuntu-22.04
