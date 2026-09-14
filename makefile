@@ -5,8 +5,12 @@ SHELL := /bin/bash
 
 # install all the required packages and configure the git hooks
 install:
-	uv sync --all-groups
-	uv run pre-commit install
+	@(\
+		uv venv; \
+		source .venv/bin/activate; \
+		uv sync --all-groups; \
+		pre-commit install; \
+	)
 
 # execute tests
 tests: FORCE
