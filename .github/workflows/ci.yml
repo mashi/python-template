@@ -18,40 +18,47 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v10.0.1
         with:
+          version: "0.12.8"
+          enable-cache: true
           python-version: '3.14'
-      - name: code formatter
+      - name: Install dependencies
+        run: uv sync --dev
+      - name: Check lint and formatting
         run: |
-          pip install wheel
-          pip install ruff
-          ruff check src/
-          ruff check tests/
+          uv run ruff check .
+          uv run ruff format --check .
 
   coverage:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v10.0.1
         with:
+          version: "0.12.8"
+          enable-cache: true
           python-version: '3.14'
-      - name: coverage
-        run: |
-          pip install wheel
-          pip install -r requirements.txt
-          python -m unittest discover -b
-
+      - name: Install dependencies
+        run: uv sync --dev
+      - name: Run tests
+        run: uv run -m unittest -b
 
   # check if the makefile recipes are valid
   makefile:
-    # needs: [test-and-build, docs] # commented because the serial execution slowed down the CI
+    # needs: [test-and-build, docs]
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v10.0.1
         with:
+          version: "0.12.8"
+          enable-cache: true
           python-version: '3.14'
-      - name: makefile recipes
+      - name: Check Makefile recipes
         run: |
           make install
           make tests
