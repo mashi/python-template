@@ -25,7 +25,7 @@ jobs:
           enable-cache: true
           python-version: '3.14'
       - name: Install dependencies
-        run: uv sync --locked
+        run: uv sync --dev
       - name: Check lint and formatting
         run: |
           uv run ruff check .
@@ -42,7 +42,7 @@ jobs:
           enable-cache: true
           python-version: '3.14'
       - name: Install dependencies
-        run: uv sync --locked
+        run: uv sync --dev
       - name: Run tests
         run: uv run -m unittest -b
 
