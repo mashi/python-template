@@ -5,8 +5,11 @@
   "pre-commit": {
     "enabled": true
   },
-  "pip_requirements": {
-    "fileMatch": ["docs/requirements-doc", "requirements$"]
+  "pep621": {
+    "enabled": true
+  },
+  "lockFileMaintenance": {
+    "enabled": true
   },
   "github-actions": {
     "fileMatch": [".github/workflows/"]
